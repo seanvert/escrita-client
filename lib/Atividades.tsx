@@ -20,8 +20,8 @@ function contaPalavras(texto: string) {
 
 function CaixaTextoAtividade (props) {
 	// TODO: ver um jeito de separar essas coisas e colocar uma função específica para validar cada atividade
-	const [contagem, setContagem]: [number, any] = useState(0);
-	const [ texto, setTexto ]: [string, any] = useState("");
+	const [contagem, setContagem]: [number, React.Dispatch<React.SetStateAction<number>>] = useState(0);
+	const [texto, setTexto]: [string, React.Dispatch<React.SetStateAction<string>>] = useState("");
 	function mudaTexto (e) {
 		setTexto(e.target.value);
 		setContagem(contaPalavras(texto));
