@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Box } from '@chakra-ui/react'
+import { FaPencilAlt } from 'react-icons/fa'
 
 // TODO: pensar em outras maneiras de calcular uma "pontuação"
 // TODO: também ver se faz algum sentido validar as palavras
@@ -11,11 +13,19 @@ import React, { useState } from 'react';
 // FIXME: criar um evento pro backspace e o delete e criar uma função para recalcular a contagem de palavras quando um dos dois forem usados
 // FIXME: também colocar uma função dessas pra rodar quando usarem o ctrl z
 
-function contaPalavras(texto: string) {
-	return texto.split(' ').length;
+function inteiroAleatorio(min: number, max: number) {
+	// max is exclusive and min is inclusive
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min) + min);
 }
 
-// TODO: pensar em alguma função externa para calcular a pontuação, ela vai envelopar o componente CaixaTexto
+function contaPalavras(texto: string) {
+	return texto.split(/\s+/).length;
+}
+
+// TODO: pensar em alguma função externa para calcular a pontuação, 
+// ela vai envelopar o componente CaixaTexto
 // cada uma será diferente de acordo com a atividade
 
 function CaixaTextoAtividade (props) {
@@ -27,21 +37,19 @@ function CaixaTextoAtividade (props) {
 		setContagem(contaPalavras(texto));
 	}
 	return (
-		<label for="">
-			Contagem de palavras: {contagem}
+        <Box verticalAlign='true' bg='white' justifyContent='center'>
 			<textarea placeholder="Escreva aqui"
 			onChange={e => mudaTexto(e)}
 			className="TextoPrincipal" />
-		</label>
+            <p><FaPencilAlt display="inline" /> {contagem}</p> 
+        </Box>
 	);
 }
 
-function Escrita() {
+function Atividade() {
 	return (
-		<div className="App">
-			<CaixaTextoAtividade />
-		</div>
+	    <CaixaTextoAtividade />
 	);
 }
 
-export default Escrita;
+export default Atividade;
