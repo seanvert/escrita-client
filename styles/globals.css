@@ -24,3 +24,20 @@ a {
     background: black;
   }
 }
+
+/* TODO mexer nisso daqui porque vai dar problema com outras caixas de texto */
+.TextoPrincipal {
+  text-align: center;
+  /*TODO: permitir o usuário definir o tamanho da margem */
+  width: 80%;
+  /* TODO ver como fazer para deixar a tela inteira na vertical */
+  height: 90vh;
+  background: #61dafb;
+  outline: none;
+  resize: none;
+  border: 0;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+}
