@@ -51,7 +51,17 @@ function Relogio(props) {
 		}, 1000)
 	});
 	return (
-		<div><FaRegClock />{tempoDecorrido}</div>
+		<Tooltip hasArrow label='Tempo'>
+			<div><FaRegClock /> {tempoDecorrido}</div>
+		</Tooltip>
+	);
+}
+
+function CaixaContadorDePalavras(props) {
+	return (
+		<Tooltip hasArrow label='Contagem de palavras'>
+			<p><FaPencilAlt /> {props.contagem}</p>
+		</Tooltip>
 	);
 }
 
@@ -64,24 +74,22 @@ function CaixaTextoAtividade(props) {
 	function mudaTexto (e) {
 		setTexto(e.target.value);
 		setContagem(contaPalavras(texto));
-		if (contagem === 0) {
-			setTempo(new Date);
-		}
+		/* if (contagem === 0) {
+		   setTempo(new Date);
+		   } */
 	}
 	return (
-        <Center bg='white' alignContent='flex-end'>
+        <Center bg='white' display="block" align="center">
 			<textarea placeholder="Escreva aqui"
 			onChange={e => mudaTexto(e)}
 			className="TextoPrincipal" />
-			<Center>
-			<Tooltip label='Contagem de palavras'>
-            <div><FaPencilAlt /> {contagem}</div>
-			</Tooltip>
-			<Tooltip label='Tempo'>
-				<div>
-			<Relogio tempo={tempo} /></div>
-			</Tooltip>
-			</Center>
+			<Flex>
+				<Spacer />
+				<CaixaContadorDePalavras contagem={contagem} />
+				<Spacer />
+				<Relogio tempo={tempo} />
+				<Spacer />
+			</Flex>
         </Center>
 	);
 }
