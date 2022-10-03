@@ -2,6 +2,8 @@ import React from 'react';
 import Head from 'next/head';
 import { Flex } from '@chakra-ui/react'
 import Header from '../components/Header';
+import footer from '../components/Footer';
+import Footer from '../components/Footer';
 
 const Main: React.FC<{ title: string; children: React.ReactNode }> = ({
     title,
@@ -19,6 +21,7 @@ const Main: React.FC<{ title: string; children: React.ReactNode }> = ({
             </Head>
             <Header />
             {children}
+            <Footer />
         </Flex>
     );
 }
