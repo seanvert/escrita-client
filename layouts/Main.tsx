@@ -5,15 +5,14 @@ import Header from '../components/Header';
 import footer from '../components/Footer';
 import Footer from '../components/Footer';
 
+
 const Main: React.FC<{ title: string; children: React.ReactNode }> = ({
     title,
     children,
     ...mainProps
 }) => {
     return (
-        <Flex
-        direction="column"
-        >
+        <Flex direction="column">
             <Head>
                 <title>
                     {title}
