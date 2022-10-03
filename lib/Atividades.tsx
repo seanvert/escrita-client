@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Center, Tooltip } from '@chakra-ui/react'
+import { Center, Tooltip } from '@chakra-ui/react'
 import { FaPencilAlt, FaRegClock } from 'react-icons/fa'
 
 // FIXME: consertar o contador que está trocando de lugar
@@ -69,7 +69,7 @@ function CaixaTextoAtividade(props) {
 		}
 	}
 	return (
-        <Box verticalAlign='true' bg='white' justifyContent='center'>
+        <Center bg='white' alignContent='flex-end'>
 			<textarea placeholder="Escreva aqui"
 			onChange={e => mudaTexto(e)}
 			className="TextoPrincipal" />
@@ -82,7 +82,7 @@ function CaixaTextoAtividade(props) {
 			<Relogio tempo={tempo} /></div>
 			</Tooltip>
 			</Center>
-        </Box>
+        </Center>
 	);
 }
 
