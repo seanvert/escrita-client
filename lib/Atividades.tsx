@@ -2,12 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Box, Center, Tooltip } from '@chakra-ui/react'
 import { FaPencilAlt, FaRegClock } from 'react-icons/fa'
 
-
-// TODO: pensar em outras maneiras de calcular uma "pontuação"
-// TODO: também ver se faz algum sentido validar as palavras
 // FIXME: consertar o contador que está trocando de lugar
 // TODO: com opção para esconder o contador
-// TODO: 
 // TODO: colocar alguma coisa para mostrar palavras da atividade
 // TODO: ver alguma maneira da caixa de texto sempre estar com o foco do 
 // teclado enquanto a aba estiver ativa
@@ -30,7 +26,8 @@ function contaPalavras(texto: string): number {
 
 function calculaPontuacao(texto: string, 
 	funcaoValidadora: (arg0: string) => number): number {
-/* 		parâmetros: texto a ser avaliado
+		// TODO
+	    /* parâmetros: texto a ser avaliado
 		funcaoValidadora função que checa as palavras,
 		elas trocam conforme mudam as atividades */
 		// retorna a pontuação
