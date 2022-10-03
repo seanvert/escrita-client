@@ -1,15 +1,15 @@
 import React from "react";
 import Link from "next/link";
-import { Flex, Box } from '@chakra-ui/react'
+import { Flex, Spacer } from '@chakra-ui/react'
 
 const Navbar: React.FC = (props) => {
     return (
-        <Box as="aside">
-            <Link href="/">Home</Link>
-            <Link href="/escrita">Escrita</Link>
+        <Flex as="aside">
+			<Link href="/">Home</Link>
+			<Link href="/escrita">Escrita</Link>
+			<Spacer />
             <Link href="/">Perfil</Link>
-
-        </Box>
+        </Flex>
     );
 }
 
