@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Center, Tooltip } from '@chakra-ui/react'
+import { Center, Tooltip, Flex, Spacer } from '@chakra-ui/react'
 import { FaPencilAlt, FaRegClock } from 'react-icons/fa'
 
 // FIXME: consertar o contador que está trocando de lugar
+// FIXME: arrumar o inicio da contagem do relógio para aparecer
+// somente quando o usuário digitar algo
 // TODO: com opção para esconder o contador
 // TODO: colocar alguma coisa para mostrar palavras da atividade
 // TODO: ver alguma maneira da caixa de texto sempre estar com o foco do 
