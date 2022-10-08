@@ -11,6 +11,13 @@ import { useRouter } from 'next/router'
 // teclado enquanto a aba estiver ativa
 // TODO: opção para tirar o backspace e o delete
 
+interface Tempo {
+	tempo: number
+}
+
+interface ContagemDePalavras {
+	contagem: number
+}
 
 export function inteiroAleatorio(min: number, max: number): number {
 	// [min, max[ 
@@ -39,7 +46,10 @@ function calculaPontuacao(texto: string,
 // ela vai envelopar o componente CaixaTexto
 // cada uma será diferente de acordo com a atividade
 
-function Relogio(props) {
+function Relogio (props: Tempo) {
+	console.log("adf")
+	console.log(typeof(props));
+	console.log("adf")
 	return (
 		<Tooltip hasArrow label='Tempo'>
 			<div><FaRegClock /> {props.tempo}</div>
@@ -47,7 +57,7 @@ function Relogio(props) {
 	);
 }
 
-function CaixaContadorDePalavras(props) {
+function CaixaContadorDePalavras(props: ContagemDePalavras) {
 	return (
 		<Tooltip hasArrow label='Contagem de palavras'>
 			<p><FaPencilAlt /> {props.contagem}</p>
@@ -55,17 +65,17 @@ function CaixaContadorDePalavras(props) {
 	);
 }
 
-function CaixaTextoAtividade(props) {
+function CaixaTextoAtividade(props: object) {
 	const router = useRouter();
 	const [ativo, setAtivo] = useState(false);
 	const [tempoRestante, setTempoRestante] = 
 		useState(10);
 	const textAreaRef = useRef(null);
 
-	function handleSubmit(event) {
-		console.log(event);
+	function handleSubmit() {
+		/* console.log(event); */
 		/* event.preventDefault(); */
-		console.log(textAreaRef.current.value);
+		/* console.log(textAreaRef.current.value); */
 	}
 	
 	useEffect(() => {
@@ -79,13 +89,13 @@ function CaixaTextoAtividade(props) {
 	   }
 	});
 
-	function setAtivoo (bool) {
+	function setAtivoo (bool: boolean) {
 		setAtivo(bool);
-		console.log(textAreaRef.current.value);
+
 	}
 	
 	return (
-        <Center bg='white' display="block" align="center">
+        <Center bg='white' display="block">
 			<form onSubmit={handleSubmit}>
 				<textarea placeholder="Escreva aqui"
 				autoFocus={true}
