@@ -42,14 +42,15 @@ function calculaPontuacao(texto: string,
 	return 1;
 }
 
+// TODO criar um contexto com firebase
+// colocar as coisas globais
+// TODO montar o dot env com as API keys 
+
 // TODO: pensar em alguma função externa para calcular a pontuação, 
 // ela vai envelopar o componente CaixaTexto
 // cada uma será diferente de acordo com a atividade
 
 function Relogio (props: Tempo) {
-	console.log("adf")
-	console.log(typeof(props));
-	console.log("adf")
 	return (
 		<Tooltip hasArrow label='Tempo'>
 			<div><FaRegClock /> {props.tempo}</div>
