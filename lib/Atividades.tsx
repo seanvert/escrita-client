@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Center, Tooltip, Flex, Spacer } from '@chakra-ui/react'
-import { FaPencilAlt, FaRegClock } from 'react-icons/fa'
+import { FaRegClock, FaPencilAlt } from 'react-icons/fa'
+import { useRouter } from 'next/router'
 
-// FIXME: consertar o contador que está trocando de lugar
 // FIXME: arrumar o inicio da contagem do relógio para aparecer
 // somente quando o usuário digitar algo
 // TODO: com opção para esconder o contador
@@ -10,16 +10,15 @@ import { FaPencilAlt, FaRegClock } from 'react-icons/fa'
 // TODO: ver alguma maneira da caixa de texto sempre estar com o foco do 
 // teclado enquanto a aba estiver ativa
 // TODO: opção para tirar o backspace e o delete
-// FIXME: criar um evento pro backspace e o delete e criar uma função para 
-// recalcular a contagem de palavras quando um dos dois forem usados
-// FIXME: também colocar uma função dessas pra rodar quando usarem o ctrl z
 
-function inteiroAleatorio(min: number, max: number): number {
+
+export function inteiroAleatorio(min: number, max: number): number {
 	// [min, max[ 
 	// max is exclusive and min is inclusive
-	min = Math.ceil(min);
-	max = Math.floor(max);
-	return Math.floor(Math.random() * (max - min) + min);
+	var min = Math.ceil(min);
+	var max = Math.floor(max);
+	var r_int = Math.floor(Math.random() * (max - min) + min);
+	return r_int;
 }
 
 function contaPalavras(texto: string): number {
@@ -40,21 +39,10 @@ function calculaPontuacao(texto: string,
 // ela vai envelopar o componente CaixaTexto
 // cada uma será diferente de acordo com a atividade
 
-function diferencaTempo(tempo: Date): number {
-	return Math.floor((new Date - tempo) / 1000);
-}
-
 function Relogio(props) {
-	const [tempoDecorrido, setTempoDecorrido] = 
-	useState(diferencaTempo(props.tempo));
-	useEffect(() => {
-		setInterval(() => {
-			setTempoDecorrido(diferencaTempo(props.tempo));
-		}, 1000)
-	});
 	return (
 		<Tooltip hasArrow label='Tempo'>
-			<div><FaRegClock /> {tempoDecorrido}</div>
+			<div><FaRegClock /> {props.tempo}</div>
 		</Tooltip>
 	);
 }
@@ -68,28 +56,46 @@ function CaixaContadorDePalavras(props) {
 }
 
 function CaixaTextoAtividade(props) {
-	// TODO: ver um jeito de separar essas coisas e colocar uma função 
-	// específica para validar cada atividade
-	const [contagem, setContagem]: [number, any] = useState(0);
-	const [texto, setTexto]: [string, any] = useState("");
-	const [tempo, setTempo]: [Date, any] = useState(new Date);
-	function mudaTexto (e) {
-		setTexto(e.target.value);
-		setContagem(contaPalavras(texto));
-		/* if (contagem === 0) {
-		   setTempo(new Date);
-		   } */
+	const router = useRouter();
+	const [ativo, setAtivo] = useState(false);
+	const [tempoRestante, setTempoRestante] = 
+		useState(10);
+	const textAreaRef = useRef(null);
+
+	function handleSubmit(event) {
+		console.log(event);
+		/* event.preventDefault(); */
+		console.log(textAreaRef.current.value);
 	}
+	
+	useEffect(() => {
+	   if (ativo && tempoRestante > 0) {
+		   const timerID = setInterval(
+			   () => {setTempoRestante(tempoRestante - 1)},
+			   1000);
+		   return () => { clearInterval(timerID) };
+	   } else if (tempoRestante == 0) {
+		   handleSubmit();
+	   }
+	});
+
+	function setAtivoo (bool) {
+		setAtivo(bool);
+		console.log(textAreaRef.current.value);
+	}
+	
 	return (
         <Center bg='white' display="block" align="center">
-			<textarea placeholder="Escreva aqui"
-			onChange={e => mudaTexto(e)}
-			className="TextoPrincipal" />
+			<form onSubmit={handleSubmit}>
+				<textarea placeholder="Escreva aqui"
+				autoFocus={true}
+				ref={textAreaRef}
+				onChange={(e) => {setAtivoo(true)}}
+				className="TextoPrincipal" />
+			</form>
 			<Flex>
 				<Spacer />
-				<CaixaContadorDePalavras contagem={contagem} />
-				<Spacer />
-				<Relogio tempo={tempo} />
+				<Relogio tempo={tempoRestante} />
 				<Spacer />
 			</Flex>
         </Center>
