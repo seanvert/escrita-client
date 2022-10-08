@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { initializeApp } from 'firebase-admin'
 
-initializeApp(process.end.GOOGLE_APPLICATION_CREDENTIALS);
+initializeApp(process.env.GOOGLE_APPLICATION_CREDENTIALS);
 
 // TODO aqui que vai o contexto
 function MyApp({ Component, pageProps }: AppProps) {
