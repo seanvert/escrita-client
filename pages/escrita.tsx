@@ -97,7 +97,8 @@ function CaixaTextoAtividade(props: object) {
 			<div className="grow">
 				<form className=""
 					onSubmit={handleSubmit}>
-					<textarea className="w-screen bg-red-100"
+					<textarea className="rounded
+					w-screen my-1 px-4 bg-red-100"
 					placeholder="Escreva aqui"
 					autoFocus={true}
 					ref={textAreaRef}
