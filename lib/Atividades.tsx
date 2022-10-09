@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Center, Tooltip, Flex, Spacer } from '@chakra-ui/react'
 import { FaRegClock, FaPencilAlt } from 'react-icons/fa'
 import { useRouter } from 'next/router'
 
@@ -52,17 +51,13 @@ function calculaPontuacao(texto: string,
 
 function Relogio (props: Tempo) {
 	return (
-		<Tooltip hasArrow label='Tempo'>
 			<div><FaRegClock /> {props.tempo}</div>
-		</Tooltip>
 	);
 }
 
 function CaixaContadorDePalavras(props: ContagemDePalavras) {
 	return (
-		<Tooltip hasArrow label='Contagem de palavras'>
 			<p><FaPencilAlt /> {props.contagem}</p>
-		</Tooltip>
 	);
 }
 
@@ -96,7 +91,7 @@ function CaixaTextoAtividade(props: object) {
 	}
 	
 	return (
-        <Center bg='white' display="block">
+        <div bg='white' display="block">
 			<form onSubmit={handleSubmit}>
 				<textarea placeholder="Escreva aqui"
 				autoFocus={true}
@@ -104,12 +99,10 @@ function CaixaTextoAtividade(props: object) {
 				onChange={(e) => {setAtivoo(true)}}
 				className="TextoPrincipal" />
 			</form>
-			<Flex>
-				<Spacer />
+			<div>
 				<Relogio tempo={tempoRestante} />
-				<Spacer />
-			</Flex>
-        </Center>
+			</div>
+        </div>
 	);
 }
 
