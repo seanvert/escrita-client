@@ -8,7 +8,7 @@ const Navbar: React.FC = (props) => {
 			<Link href="/">Home</Link>
 			<Link href="/escrita">Escrita</Link>
 			<Spacer />
-            <Link href="/">Perfil</Link>
+            <Link href="/login">Login</Link>
         </Flex>
     );
 }

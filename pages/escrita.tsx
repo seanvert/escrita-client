@@ -7,7 +7,6 @@ const Escrita: React.FC = (props) => {
         <Main title="Atividade">
                 <Atividade />
         </Main>
-        
     );
 }
 
