@@ -91,7 +91,7 @@ function CaixaTextoAtividade(props: object) {
 	}
 	
 	return (
-        <div bg='white' display="block">
+        <div class="bg-violet-500">
 			<form onSubmit={handleSubmit}>
 				<textarea placeholder="Escreva aqui"
 				autoFocus={true}

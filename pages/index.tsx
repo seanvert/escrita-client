@@ -12,7 +12,6 @@ const Home: NextPage = () => {
   return (
       <Main title="Escrita">
 		  <LoremIpsum p={2} />
-
       </Main>
   )
 }

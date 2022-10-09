@@ -4,8 +4,10 @@ import type { AppProps } from 'next/app'
 // TODO aqui que vai o contexto
 function MyApp({ Component, pageProps }: AppProps) {
     return (
-        <Component {...pageProps} />
-        )
+        <Component 
+		{...pageProps}
+		/>
+    )
 }
     
 export default MyApp
