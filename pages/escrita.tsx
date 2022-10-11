@@ -73,6 +73,7 @@ function CaixaTextoAtividade(props: object) {
 		/* console.log(event); */
 		/* event.preventDefault(); */
 		/* console.log(textAreaRef.current.value); */
+		document.getElementById("atividade").submit();
 	}
 	
 	useEffect(() => {
@@ -88,18 +89,20 @@ function CaixaTextoAtividade(props: object) {
 
 	function setAtivoo (bool: boolean) {
 		setAtivo(bool);
-
 	}
 	
 	return (
 		<div className="grow">
-			<form className=""
+			<form id="atividade"
+				action={process.env.DB_HOST_TEXTS}
+				method="post"
 				onSubmit={handleSubmit}>
 				<textarea className="rounded
 				w-screen my-1 px-4 bg-red-300
 				text-justify resize-none"
 				placeholder="Escreva aqui"
 				autoFocus={true}
+				name="conteudo"
 				ref={textAreaRef}
 				onChange={(e) => {setAtivoo(true)}}
 				/>

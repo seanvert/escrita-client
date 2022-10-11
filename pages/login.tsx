@@ -7,14 +7,14 @@ const Login: React.FC = (props) => {
 			<div className="grow grid">
 				<div className="self-center text-center">
 					<form className="font-bold bg-orange-800"
-						  action="/send-data-here" method="post">
+						  action={process.env.DB_HOST_USERS} method="post">
 						<div className="flex-col">
 							<div>
 								<label>Usuário:</label>
 								<input
 								className="my-2"
 								type="text"
-								id="user" name="usuario"
+								name="usuario"
 								required
 								/>
 							</div>
@@ -23,7 +23,7 @@ const Login: React.FC = (props) => {
 								<input
 								className="my-2"
 								type="password"
-								id="last" name="senha"
+								name="senha"
 								required
 								/>
 							</div>

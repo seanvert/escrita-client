@@ -18,11 +18,11 @@ const Main: React.FC<{ title: string; children: React.ReactNode }> = ({
                 </title>
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
-			<Header />
-			<div className="grow flex">
-				{children}
-			</div>
-			<Footer />
+				<Header />
+				<div className="grow flex">
+					{children}
+				</div>
+				<Footer />
 		</>
     );
 }
