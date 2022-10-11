@@ -3,17 +3,17 @@ import Link from "next/link";
 
 const Navbar: React.FC = (props) => {
     return (
-		<div class="flex rounded-full bg-slate-300 min-h-50 px-4 space-x-4">
-			<div class="rounded-full bg-slate-100">
+		<div className="flex rounded-full bg-slate-300 min-h-50 px-4 space-x-4">
+			<div className="rounded-full bg-slate-100">
 				<Link href="/">Home</Link>
 			</div>
-			<div class="">
+			<div className="">
 				<Link href="/escrita">Escrita</Link>
 			</div>
-			<div class="grow">
+			<div className="grow">
 				
 			</div>
-			<div class="">
+			<div className="">
 				<Link href="/login">Login</Link>
 			</div>
 		</div>

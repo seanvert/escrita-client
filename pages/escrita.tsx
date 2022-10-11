@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { FaRegClock, FaPencilAlt } from 'react-icons/fa'
 import { useRouter } from 'next/router'
-/* import Atividade from "../lib/Atividades" */
 import Main from "../layouts/Main";
 
 // FIXME: arrumar o inicio da contagem do relógio para aparecer

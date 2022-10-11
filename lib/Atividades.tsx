@@ -91,13 +91,13 @@ function CaixaTextoAtividade(props: object) {
 	}
 	
 	return (
-        <div class="bg-violet-500">
+        <div className="bg-violet-500">
 			<form onSubmit={handleSubmit}>
 				<textarea placeholder="Escreva aqui"
 				autoFocus={true}
 				ref={textAreaRef}
 				onChange={(e) => {setAtivoo(true)}}
-				className="TextoPrincipal" />
+				className="TextoPrincipal h-100" />
 			</form>
 			<div>
 				<Relogio tempo={tempoRestante} />
