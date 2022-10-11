@@ -19,7 +19,9 @@ const Main: React.FC<{ title: string; children: React.ReactNode }> = ({
 				<meta name="viewport" content="initial-scale=1.0, width=device-width" />
             </Head>
 			<Header />
-			{children}
+			<div className="grow flex">
+				{children}
+			</div>
 			<Footer />
 		</>
     );

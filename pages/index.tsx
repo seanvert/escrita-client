@@ -9,9 +9,7 @@ import Main from '../layouts/Main'
 const Home: NextPage = () => {
   return (
       <Main title="Escrita">
-		  <div className="grow">
 			  index
-		  </div>
       </Main>
   )
 }

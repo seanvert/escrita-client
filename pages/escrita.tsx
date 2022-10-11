@@ -92,23 +92,20 @@ function CaixaTextoAtividade(props: object) {
 	}
 	
 	return (
-        <div className="grow bg-violet-500 flex-col content-center">
-			<div className="grow">
-				<form className=""
-					onSubmit={handleSubmit}>
-					<textarea className="rounded
-					w-screen my-1 px-4 bg-red-100"
-					placeholder="Escreva aqui"
-					autoFocus={true}
-					ref={textAreaRef}
-					onChange={(e) => {setAtivoo(true)}}
-					/>
-				</form>
-			</div>
-			<div>
-				<Relogio tempo={tempoRestante} />
-			</div>
-        </div>
+		<div className="grow">
+			<form className=""
+				onSubmit={handleSubmit}>
+				<textarea className="rounded
+				w-screen my-1 px-4 bg-red-300
+				text-justify resize-none"
+				placeholder="Escreva aqui"
+				autoFocus={true}
+				ref={textAreaRef}
+				onChange={(e) => {setAtivoo(true)}}
+				/>
+			</form>
+			<Relogio tempo={tempoRestante} />
+		</div>
 	);
 }
 
