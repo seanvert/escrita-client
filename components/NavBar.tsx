@@ -10,6 +10,9 @@ const Navbar: React.FC = (props) => {
 			<div className="">
 				<Link href="/escrita">Escrita</Link>
 			</div>
+			<div className="">
+				<Link href="/trilha">Trilha</Link>
+			</div>
 			<div className="grow">
 				
 			</div>
